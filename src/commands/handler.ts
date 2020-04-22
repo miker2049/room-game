@@ -1,5 +1,6 @@
 import { LogService, MatrixClient, MessageEvent, RichReply, UserID } from "matrix-bot-sdk";
 import { runHelloCommand } from "./hello";
+import { runListUsersCommand } from "./users";
 import * as htmlEscape from "escape-html";
 
 // The prefix required to trigger the bot. The bot will also respond
@@ -27,6 +28,7 @@ export default class CommandHandler {
     }
 
     private async prepareProfile() {
+        this.client.setDisplayName("gamebot");
         this.userId = await this.client.getUserId();
         this.localpart = new UserID(this.userId).localpart;
 
@@ -47,7 +49,7 @@ export default class CommandHandler {
 
         // Ensure that the event is a command before going on. We allow people to ping
         // the bot as well as using our COMMAND_PREFIX.
-        const prefixes = [COMMAND_PREFIX, `${this.localpart}:`, `${this.displayName}:`, `${this.userId}:`];
+        const prefixes = [COMMAND_PREFIX, `botboy`,`${this.localpart}:`, `${this.displayName}:`, `${this.userId}:`];
         const prefixUsed = prefixes.find(p => event.textBody.startsWith(p));
         if (!prefixUsed) return; // Not a command (as far as we're concerned)
 
@@ -58,6 +60,8 @@ export default class CommandHandler {
         try {
             if (args[0] === "hello") {
                 return runHelloCommand(roomId, event, args, this.client);
+            } else if (args[0] === "users") {
+                return runListUsersCommand(roomId, event, args, this.client);
             } else {
                 const help = "" +
                     "!bot hello [user]     - Say hello to a user.\n" +

@@ -1,11 +1,11 @@
 # Where the homeserver's Client-Server API is located. Typically this
 # is where clients would be connecting to in order to send messages.
-homeserverUrl: "https://matrix.org"
+homeserverUrl: "https://matrix.groupchattt.page"
 
 # An access token for the bot to use. Learn how to get an access token
 # at https://t2bot.io/docs/access_tokens
-accessToken: "YOUR_TOKEN_HERE"
-
+# account 
+accessToken: "MDAxZWxvY2F0aW9uIGdyb3VwY2hhdHR0LnBhZ2UKMDAxM2lkZW50aWZpZXIga2V5CjAwMTBjaWQgZ2VuID0gMQowMDJkY2lkIHVzZXJfaWQgPSBAcm9vbWdhbWU6Z3JvdXBjaGF0dHQucGFnZQowMDE2Y2lkIHR5cGUgPSBhY2Nlc3MKMDAyMWNpZCBub25jZSA9IFU1OkIsR15jcWNwI3Ezan4KMDAyZnNpZ25hdHVyZSAaCe_JeFhtwN-sWuE7R7w4JxZg2VDx6b5Uzt-Gpii0Ugo"
 # Whether or not to autojoin rooms when invited.
 autoJoin: true
 

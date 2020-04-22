@@ -6,6 +6,7 @@ import {
     RichConsoleLogger,
     SimpleFsStorageProvider
 } from "matrix-bot-sdk";
+
 import * as path from "path";
 import config from "./config";
 import CommandHandler from "./commands/handler";
@@ -24,6 +25,7 @@ const storage = new SimpleFsStorageProvider(path.join(config.dataPath, "bot.json
 
 // Create the client
 const client = new MatrixClient(config.homeserverUrl, config.accessToken, storage);
+
 
 // Setup the autojoin mixin (if enabled)
 if (config.autoJoin) {
